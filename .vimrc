@@ -1,0 +1,9 @@
+syntax on
+set nu
+set relativenumber
+set smartindent
+set expandtab
+set scrolloff=8
+set showcmd
+set guicursor=
+colo wildcharm 
