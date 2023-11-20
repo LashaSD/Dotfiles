@@ -6,4 +6,4 @@ set expandtab
 set scrolloff=8
 set showcmd
 set guicursor=
-colo wildcharm 
+colorscheme wildcharm 
