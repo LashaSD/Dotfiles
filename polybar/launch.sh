@@ -7,4 +7,8 @@
 killall -q polybar
 
 # Launch bar1 and bar2
-exec polybar
+#exec polybar -c $HOME/.config/polybar/configJohn.ini
+exec polybar -c $HOME/.config/polybar/configNeon.ini
+#exec polybar -c $HOME/.config/polybar/configNeonPurple.ini
+#exec polybar -c $HOME/.config/polybar/configCatpucc.ini
+

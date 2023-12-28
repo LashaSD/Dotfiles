@@ -149,10 +149,26 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-##########SHORTCUTS##########
-# Screenshots
-bindsym --release Print exec scrot -F $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
-bindsym --release Shift+Print exec sxclip -selection clipboard -t image/png && crot -F $HOME/Pictures/Screenshots/`date +%Y-%m-%d_%H:%M:%S`.png
+#        SHORTCUTS       # 
+
+# Screenshots #
+
+# Save #
+bindsym --release Print exec scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+
+# Copy #
+bindsym --release Shift+Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f'
+
+# Save And Copy #
+bindsym --release Shift+Ctrl+Print exec scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
+
+# Selection Copy #
+bindsym --release Ctrl+Print exec scrot -s -e 'xclip -selection clipboard -t image/png -i $f'
+
+# Selection Save And Copy #
+bindsym --release $mod+Ctrl+Print exec scrot -s -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
+
+
 
 # Screen Brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
@@ -193,8 +209,8 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-gaps inner 5
-gaps outer 5
+gaps inner 7
+gaps outer 7
 
 default_border none 
 default_floating_border none
@@ -203,8 +219,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-hide_edge_borders smart 
+hide_edge_borders smart
 exec_always feh --bg-fill $HOME/Pictures/Wallpapers/Purple_Tree.jpg
+#exec_always feh --bg-fill $HOME/Pictures/Wallpapers/NeonGirl.jpg
 #exec_always feh --bg-fill $HOME/Pictures/Wallpapers/DontBeAfraidJohn4k.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
