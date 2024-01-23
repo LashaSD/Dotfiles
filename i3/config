@@ -151,23 +151,19 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 #        SHORTCUTS       # 
 
+# Keyboard Layout #
+exec_always "setxkbmap -option 'grp:alt_shift_toggle' -layout us,ge -variant qwerty"
+
 # Screenshots #
 
 # Save #
 bindsym --release Print exec scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png"
 
-# Copy #
-bindsym --release Shift+Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f'
-
 # Save And Copy #
-bindsym --release Shift+Ctrl+Print exec scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
-
-# Selection Copy #
-bindsym --release Ctrl+Print exec scrot -s -e 'xclip -selection clipboard -t image/png -i $f'
+bindsym --release Ctrl+Print exec scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
 
 # Selection Save And Copy #
-bindsym --release $mod+Ctrl+Print exec scrot -s -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
-
+bindsym --release Shift+Print exec scrot -s -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
 
 
 # Screen Brightness
@@ -220,9 +216,12 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 hide_edge_borders smart
-exec_always feh --bg-fill $HOME/Pictures/Wallpapers/Purple_Tree.jpg
+#exec_always feh --bg-fill $HOME/Pictures/Wallpapers/Purple_Tree.jpg
 #exec_always feh --bg-fill $HOME/Pictures/Wallpapers/NeonGirl.jpg
 #exec_always feh --bg-fill $HOME/Pictures/Wallpapers/DontBeAfraidJohn4k.png
+exec_always feh --bg-fill $HOME/Pictures/Wallpapers/BlackAndWhiteMinTree.jpg
+#exec_always feh --bg-fill $HOME/Pictures/Wallpapers/BlackAndWhiteTree.jpg
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
 exec xinput set-prop 9 287 1
