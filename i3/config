@@ -224,4 +224,4 @@ exec_always feh --bg-fill $HOME/Pictures/Wallpapers/BlackAndWhiteMinTree.jpg
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id picom -b
-exec xinput set-prop 9 287 1
+exec xinput set-prop 9 293 1
