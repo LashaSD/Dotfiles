@@ -30,7 +30,7 @@ background = "#18181b"
 foreground = "#CECECE"
 
 [font]
-size = 9
+size = 12 
 
 [font.bold]
 family = "Monoid Nerd Font Mono"
@@ -64,7 +64,7 @@ save_to_clipboard = false
 program = "/usr/bin/bash"
 
 [window]
-opacity = 1
+opacity = 0.8 
 
 [window.class]
 general = "Alacritty"

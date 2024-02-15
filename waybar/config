@@ -1,0 +1,43 @@
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": ["custom/arch", "clock" ],
+	"modules-center": ["hyprland/workspaces" ],
+	"modules-right": [ "network", "pulseaudio",],
+	"custom/arch": {
+	  "format": "  ",
+	  "tooltip": false,
+	  "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+	},
+	"hyprland/workspaces": {
+	  "format": "{icon}",
+	  "tooltip": false,
+	  "all-outputs": true,
+	  "format-icons": {
+		"active": "<span size='large'></span>",
+		"default": "<span size='medium'></span>",
+	  }
+	},
+	"clock": {
+	  "format": "<span color='#b4befe'></span>{:%H:%M}",
+	  "tooltip-format": "<span color='#b4befe'></span>{:%d/%m/%Y}",
+	  "interval": 50,
+	},
+	"pulseaudio": {
+	  "format": "<span size='large'>{icon} {volume}%</span>",
+	  "format-muted": "",
+	  "tooltip": false,
+	  "format-icons": {
+		"default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+	  },
+	  "scroll-step": 5,
+	},
+	"network": {
+	  "interval": 3,
+	  "format": "↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+	  "format-wifi": "WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+	  "format-ethernet": "LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+	  "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
+	  "tooltip": false,
+	},
+}
