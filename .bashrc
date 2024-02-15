@@ -19,4 +19,8 @@ alias cv='cat solve.cpp | xclip -selection clipboard'
 alias c='g++ -s -O3 -o solve solve.cpp && ./solve'
 eval "$(starship init bash)"
 
+if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
+    wal -Rqe
+fi
+
 . /usr/share/autojump/autojump.bash
