@@ -1,11 +1,14 @@
 {
 	"layer": "top",
 	"position": "top",
-	"modules-left": ["custom/arch", "clock" ],
+  "width": 1875,
+  "spacing": 0,
+  "margin-top": 5,
+	"modules-left": ["custom/arch", "clock", "hyprland/window" ],
 	"modules-center": ["hyprland/workspaces" ],
 	"modules-right": [ "network", "pulseaudio",],
 	"custom/arch": {
-	  "format": "  ",
+	  "format": "<span size='medium'></span>",
 	  "tooltip": false,
 	  "on-click": "sh $HOME/.config/rofi/bin/powermenu"
 	},
@@ -14,30 +17,31 @@
 	  "tooltip": false,
 	  "all-outputs": true,
 	  "format-icons": {
-		"active": "<span size='large'></span>",
-		"default": "<span size='medium'></span>",
+        "empty": "<span size='medium'></span>", 
+        "urgent": "<span size='medium'></span>",
+        "active": "<span size='large'></span>",
+        "default": "<span size='medium'></span>",
 	  }
 	},
+  "hyprland/window": {
+	  "format": "{title}",
+	},
 	"clock": {
-	  "format": "<span color='#b4befe'></span>{:%H:%M}",
-	  "tooltip-format": "<span color='#b4befe'></span>{:%d/%m/%Y}",
+	  "format": "{:%H:%M}",
+	  "tooltip-format": "{:%d/%m/%Y}",
 	  "interval": 50,
 	},
 	"pulseaudio": {
-	  "format": "<span size='large'>{icon} {volume}%</span>",
-	  "format-muted": "",
+	  "format": "<span size='medium'>VOL {volume}%</span>",
 	  "tooltip": false,
-	  "format-icons": {
-		"default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
-	  },
 	  "scroll-step": 5,
 	},
 	"network": {
 	  "interval": 3,
-	  "format": "↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
-	  "format-wifi": "WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
-	  "format-ethernet": "LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
-	  "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
+	  "format": "<span size='medium'>↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+	  "format-wifi": "<span size='medium'>WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+	  "format-ethernet": "<span size='medium'>LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+	  "format-disconnected": "<span size='medium'>󰖪 No Network{bandwidthUpBits}</span>",
 	  "tooltip": false,
 	},
 }
