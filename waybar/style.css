@@ -16,7 +16,7 @@ window#waybar {
   background-color: @color11;
   transition-property: background-color;
   transition-duration: .5s;
-  border-radius: 3px;
+  border-radius: 1px;
   border-width: 1.5px;
   border-color: @color7;
   border-style: solid;
@@ -25,29 +25,28 @@ window#waybar {
 #custom-arch, #workspaces {
   background-color: rgba(0,0,0,0);
   margin-right: 15px;
-  padding: 0px;
   padding-left: 5px;
-  padding-right: 10px;
+  padding-right: 5px;
 }
 
 #workspaces, #language, #custom-powermenu {
   background-color: @color13;
-  border-radius: 3px;
+  border-radius: 10px;
   margin: 6px 10px;
   margin-right: 10px;
-  padding: 5px;
 }
 
 #language, #custom-powermenu {
   margin: 7px 5px;
   margin-right: 15px;
-  padding: 0px 7px;
-  border-radius: 5px;
+  padding: 0 7px;
+  border-radius: 15px;
 }
 
 #custom-powermenu {
-  background-color: rgba(219, 79, 72, 1);
-  color: rgba(255, 255, 255, 0.9);
+  /*background-color: rgba(219, 79, 72, 1);*/
+  /*color: rgba(255, 255, 255, 0.9);*/
+  margin-left: 0;
 }
 
 #custom-arch {
@@ -65,8 +64,6 @@ window#waybar {
 }
 
 #clock, #pulseaudio, #network, #window  {
-  /*border-radius: 10px;*/
-  /*background-color: @color13;*/
   background-color: rgba(0,0,0,0);
   padding-left: 10px;
   padding-right: 5px;
@@ -83,5 +80,6 @@ window#waybar {
 
 #network, #pulseaudio {
   margin: 0;
-  margin-right: 5px;
+  margin-right: 15px;
+  padding: 0;
 }
