@@ -1,47 +1,59 @@
 {
-	"layer": "top",
-	"position": "top",
-  "width": 1875,
+  "layer": "top",
+  "position": "top",
+  "width": 1900,
   "spacing": 0,
-  "margin-top": 5,
-	"modules-left": ["custom/arch", "clock", "hyprland/window" ],
-	"modules-center": ["hyprland/workspaces" ],
-	"modules-right": [ "network", "pulseaudio",],
-	"custom/arch": {
-	  "format": "<span size='medium'></span>",
-	  "tooltip": false,
-	  "on-click": "sh $HOME/.config/rofi/bin/powermenu"
-	},
-	"hyprland/workspaces": {
-	  "format": "{icon}",
-	  "tooltip": false,
-	  "all-outputs": true,
-	  "format-icons": {
-        "empty": "<span size='medium'></span>", 
-        "urgent": "<span size='medium'></span>",
-        "active": "<span size='large'></span>",
-        "default": "<span size='medium'></span>",
-	  }
-	},
+  "margin-top": 7,
+  "modules-left": ["hyprland/workspaces", "hyprland/window" ],
+  "modules-center": ["clock" ],
+  "modules-right": [ "network", "pulseaudio", "hyprland/language", "custom/powermenu"],
+  "custom/arch": {
+    "format": "<span size='medium'></span>",
+    "tooltip": false,
+    "on-click": "sh $HOME/.config/rofi/bin/powermenu"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": true,
+    "format-icons": {
+      "empty": "<span size='medium'></span>", 
+      "urgent": "<span size='medium'></span>",
+      "active": "<span size='large'>󱓻</span>",
+      "default": "<span size='medium'></span>",
+    }
+  },
+  "custom/powermenu": {
+    "format": "<span size='x-large'></span>",
+    "on-click": "wlogout",
+  },
   "hyprland/window": {
-	  "format": "{title}",
-	},
-	"clock": {
-	  "format": "{:%H:%M}",
-	  "tooltip-format": "{:%d/%m/%Y}",
-	  "interval": 50,
-	},
-	"pulseaudio": {
-	  "format": "<span size='medium'>VOL {volume}%</span>",
-	  "tooltip": false,
-	  "scroll-step": 5,
-	},
-	"network": {
-	  "interval": 3,
-	  "format": "<span size='medium'>↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-	  "format-wifi": "<span size='medium'>WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-	  "format-ethernet": "<span size='medium'>LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-	  "format-disconnected": "<span size='medium'>󰖪 No Network{bandwidthUpBits}</span>",
-	  "tooltip": false,
-	},
+    "format": "{title}",
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "Firefox",
+        "(.*) — Vesktop": "Discord",
+        "(.*)@archlinux:(.*)": "Terminal",
+    },
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%d/%m/%Y}",
+    "interval": 50,
+  },
+  "hyprland/language": {
+    "format": "<span size='medium'>{short}</span> ",
+  },
+  "pulseaudio": {
+    "format": "VOL {volume}%",
+    "tooltip": false,
+    "scroll-step": 5,
+  },
+  "network": {
+    "interval": 3,
+    "format": "<span size='medium'>↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+    "format-wifi": "<span size='medium'>WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+    "format-ethernet": "<span size='medium'>LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
+    "format-disconnected": "<span size='medium'>󰖪 No Network{bandwidthUpBits}</span>",
+    "tooltip": false,
+  },
 }
