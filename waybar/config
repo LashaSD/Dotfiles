@@ -17,10 +17,17 @@
     "tooltip": false,
     "all-outputs": true,
     "format-icons": {
+      "1": "<span size='medium'></span>",
+      "2": "<span size='medium'></span>",
+      "3": "<span size='medium'></span>",
+      "4": "<span size='medium'></span>",
       "empty": "<span size='medium'></span>", 
       "urgent": "<span size='medium'></span>",
       "active": "<span size='large'>󱓻</span>",
       "default": "<span size='medium'></span>",
+    },
+    "persistent_workspaces": {
+      "*": 4,
     }
   },
   "custom/powermenu": {
