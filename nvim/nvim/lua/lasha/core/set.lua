@@ -18,11 +18,3 @@ vim.opt.scrolloff = 8;
 
 vim.opt.cursorline = true
 
-vim.filetype.add({
-	extension = {
-		lua = function(path)
-			return path:match(".nvim.lua$") and "lua" or "luau"
-		end,
-	},
-})
-
