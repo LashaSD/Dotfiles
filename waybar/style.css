@@ -4,8 +4,7 @@
   border: none;
   font-family: "JetBrainsMono Nerd Font Mono", "Font Awesome 5 Free";
   color: @color7;
-  /*font-size: 16px;*/
-  margin: 1px 0px;
+  font-size: 15px;
 }
 
 window#waybar.empty #window{
@@ -16,7 +15,7 @@ window#waybar {
   background-color: @color11;
   transition-property: background-color;
   transition-duration: .5s;
-  border-radius: 6px;
+  border-radius: 8px;
   border-width: 0.5px;
   border-color: @color7;
   border-style: solid;
@@ -37,29 +36,18 @@ window#waybar {
 }
 
 #language, #custom-powermenu {
-  margin: 7px 5px;
+  margin-left: 0;
   margin-right: 15px;
-  padding: 0 8.5px;
+  padding: 0 4.5px;
   border-radius: 15px;
 }
 
 #custom-powermenu {
-  /*background-color: rgba(219, 79, 72, 1);*/
-  /*color: rgba(255, 255, 255, 0.9);*/
-  margin-left: 0;
-}
-
-#custom-arch {
-  border-radius: 3px;
-  font-size: 25px;
-  padding: 0;
-  margin-left: 13px;
-  margin-right: 0;
-  /*background-color: @color13;*/
+  padding: 0 8px;
 }
 
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 3.5px;
   background: transparent;
 }
 
@@ -69,7 +57,6 @@ window#waybar {
   padding-right: 5px;
   margin-right: 15px;
   margin-left: 0;
-  font-size: 16px;
 }
 
 #window, #clock {
@@ -79,9 +66,10 @@ window#waybar {
 }
 
 #network, #pulseaudio {
-  margin: 6px 0;
+  margin: 6px 2px;
   margin-right: 15px;
   padding-right: 10px;
+  padding: 2px 10px;
   border-radius: 3px;
   background-color: @color13;
 }

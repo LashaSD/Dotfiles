@@ -1,14 +1,15 @@
 {
+  "reload_style_on_change": true,
   "layer": "top",
   "position": "top",
-  "width": 1892,
   "spacing": 0,
+  "width": 1892,
   "margin-top": 7,
   "modules-left": ["hyprland/workspaces", "hyprland/window" ],
   "modules-center": ["clock" ],
   "modules-right": [ "network", "pulseaudio", "hyprland/language", "custom/powermenu"],
   "custom/arch": {
-    "format": "<span size='medium'></span>",
+    "format": "",
     "tooltip": false,
     "on-click": "sh $HOME/.config/rofi/bin/powermenu"
   },
@@ -17,21 +18,21 @@
     "tooltip": false,
     "all-outputs": true,
     "format-icons": {
-      "1": "<span size='medium'></span>",
-      "2": "<span size='medium'></span>",
-      "3": "<span size='medium'></span>",
-      "4": "<span size='medium'></span>",
-      "empty": "<span size='medium'></span>", 
-      "urgent": "<span size='medium'></span>",
-      "active": "<span size='large'>󱓻</span>",
-      "default": "<span size='medium'></span>",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "empty": "", 
+      "urgent": "",
+      "active": "󱓻",
+      "default": "",
     },
     "persistent_workspaces": {
       "*": 4,
     }
   },
   "custom/powermenu": {
-    "format": "<span size='x-large'></span>",
+    "format": "",
     "on-click": "wlogout",
   },
   "hyprland/window": {
@@ -48,7 +49,7 @@
     "interval": 50,
   },
   "hyprland/language": {
-    "format": "<span size='medium'>{short}</span> ",
+    "format": "{short}",
   },
   "pulseaudio": {
     "format": "VOL {volume}%",
@@ -57,10 +58,10 @@
   },
   "network": {
     "interval": 3,
-    "format": "<span size='medium'>↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-    "format-wifi": "<span size='medium'>WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-    "format-ethernet": "<span size='medium'>LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}</span>",
-    "format-disconnected": "<span size='medium'>󰖪 No Network{bandwidthUpBits}</span>",
+    "format": "↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+    "format-wifi": "WLAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+    "format-ethernet": "LAN ↓ {bandwidthDownBits} ↑ {bandwidthUpBits}",
+    "format-disconnected": "󰖪 No Network{bandwidthUpBits}",
     "tooltip": false,
   },
 }
