@@ -9,7 +9,11 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+        telescope.load_extension("fzf")
 		telescope.setup({})
-  	--telescope.load_extension("fzf")
 	end,
+    keys = {
+      {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files with Fuzzy Finder"},
+      {"<leader>ft", "<cmd>Telescope<cr>", desc = "Telescope"} 
+    }
 }

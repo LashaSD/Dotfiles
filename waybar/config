@@ -45,7 +45,7 @@
   },
   "clock": {
     "format": "{:%H:%M}",
-    "tooltip-format": "{:%d/%m/%Y}",
+    "tooltip-format": "{:%a %d/%m/%Y}",
     "interval": 50,
   },
   "hyprland/language": {

@@ -40,9 +40,11 @@ window#waybar {
   margin-right: 15px;
   padding: 0 4.5px;
   border-radius: 15px;
+  font-size: 14px;
 }
 
 #custom-powermenu {
+  font-size: 16px;
   padding: 0 8px;
 }
 

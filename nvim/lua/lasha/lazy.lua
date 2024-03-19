@@ -11,11 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
+vim.g.mapleader = " ";
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+		--{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "lasha/plugins" },
 	},
 	defaults = {
