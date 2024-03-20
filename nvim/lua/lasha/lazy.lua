@@ -18,6 +18,8 @@ require("lazy").setup({
 	spec = {
 		--{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "lasha/plugins" },
+		{ import = "lasha/plugins/colorschemes" },
+		{ import = "lasha/plugins/lsp" },
 	},
 	defaults = {
 		lazy = false,

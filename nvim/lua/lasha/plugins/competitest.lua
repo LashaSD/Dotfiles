@@ -3,7 +3,8 @@ return {
 	dependencies = 'MunifTanjim/nui.nvim',
 	config = function() require('competitest').setup({
       testcases_directory = "./cases/",
-      testcases_use_single_file = true
+      testcases_use_single_file = true,
+      view_output_diff = true
     }) end,
     keys = {
       {"<leader>cl", "<cmd>CompetiTest receive testcases<cr>", desc = "Load Test Cases from the Browser" },
