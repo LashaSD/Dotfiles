@@ -20,8 +20,13 @@ vim.opt.cursorline = true
 
 vim.filetype.add({
 	extension = {
-		lua = function(path)
-			return path:match(".nvim.lua$") and "lua" or "luau"
+      lua = function(path)
+        local a = path:match(".server.lua$");
+        local b = path:match(".client.lua$");
+
+        if (a or b) then return "luau" end
+
+        return "lua";
 		end,
 	},
 })

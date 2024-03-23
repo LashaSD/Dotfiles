@@ -16,13 +16,25 @@ return {
         completeopt = "menu,menuone,noinsert",
       },
       mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            if #cmp.get_entries() == 1 then
+              cmp.confirm({ select = true })
+            else
+              cmp.select_next_item()
+            end
+          else
+            fallback();
+          end
+        end, { "i", "s" }),
         ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping({ i = function(fallback)
+        ["<CR>"] = cmp.mapping({
+          i = function(fallback)
             if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
             else
