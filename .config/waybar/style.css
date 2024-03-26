@@ -15,7 +15,7 @@ window#waybar {
   background-color: @color11;
   transition-property: background-color;
   transition-duration: .5s;
-  border-radius: 8px;
+  border-radius: 1px;
   border-width: 0.5px;
   border-color: @color7;
   border-style: solid;
@@ -38,14 +38,15 @@ window#waybar {
 #language, #custom-powermenu {
   margin-left: 0;
   margin-right: 15px;
-  padding: 0 4.5px;
-  border-radius: 15px;
+  padding: 0 5px;
+  border-radius: 50px;
   font-size: 14px;
 }
 
 #custom-powermenu {
   font-size: 16px;
   padding: 0 8px;
+  border-radius: 15px;
 }
 
 #workspaces button {
