@@ -4,7 +4,13 @@ return {
 	config = function() require('competitest').setup({
       testcases_directory = "./cases/",
       testcases_use_single_file = true,
-      view_output_diff = true
+      view_output_diff = true,
+      compile_command = {
+        c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+        cpp = { exec = "g++", args = { "-s", "-O3", "-o", "$(FNOEXT)", "$(FNAME)" } },
+        rust = { exec = "rustc", args = { "$(FNAME)" } },
+        java = { exec = "javac", args = { "$(FNAME)" } },
+      },
     }) end,
     keys = {
       {"<leader>cl", "<cmd>CompetiTest receive testcases<cr>", desc = "Load Test Cases from the Browser" },
