@@ -64,7 +64,7 @@ save_to_clipboard = false
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 0.8 
+opacity = 1 
 
 [window.class]
 general = "Alacritty"

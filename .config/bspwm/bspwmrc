@@ -1,0 +1,47 @@
+#! /bin/sh
+
+
+# Bspwm Config
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width         2
+bspc config window_gap          12
+bspc config top_padding         15
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Vesktop desktop='^4' 
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a Chromium desktop='^2'
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
+
+# Function to toggle Polybar visibility
+toggle_polybar() {
+    if pgrep -x polybar > /dev/null; then
+        polybar-msg cmd toggle
+    fi
+}
+
+# Listen for window state changes
+xprop -spy -root _NET_ACTIVE_WINDOW | while read -r _; do
+    # Get the current window's state
+    window_state=$(xprop -id $(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f 5) | grep "_NET_WM_STATE(ATOM)" | cut -d ' ' -f 5)
+
+    # Check if the window is in fullscreen mode
+    if [[ $window_state == *"_NET_WM_STATE_FULLSCREEN"* ]]; then
+        # Hide Polybar if the window is in fullscreen mode
+        polybar-msg cmd hide
+    else
+        # Show Polybar if the window is not in fullscreen mode
+        polybar-msg cmd show
+    fi
+done &
+
+# Startup Apps
+
+exec $HOME/.config/bspwm/load.sh
