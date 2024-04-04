@@ -1,11 +1,10 @@
 #!/bin/sh
 
-killall picom
-killall dunst
+# killall dunst &
 killall polybar
-killall sxhkd
+killall sxhkd 
 
-picom &
+picom --experimental-backend &
 dunst & 
 $HOME/.config/polybar/launch.sh &
 sxhkd &

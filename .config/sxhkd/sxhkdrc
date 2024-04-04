@@ -8,7 +8,8 @@ super + Return
 
 # program launcher
 super + d
-    rofi -show drun
+  $HOME/.config/rofi/launchers/type-1/launcher.sh
+    
 
 # make sxhkd reload its configuration files:
 super + ctrl + r  
@@ -17,6 +18,11 @@ super + ctrl + r
 super + shift + r 
     $HOME/.config/bspwm/load.sh
 
+# Powermenu
+super + shift + e
+  $HOME/.config/rofi/powermenu/type-2/powermenu.sh
+
+# Audio 
 XF86AudioLowerVolume
    pactl set-sink-volume 0 -5%
 
@@ -26,12 +32,19 @@ XF86AudioRaiseVolume
 XF86AudioMute
   pactl set-sink-mute 0 toggle
 
+# Screenshots
+@Print
+  scrot -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png"
+
+super + c
+  scrot -s -F "$HOME/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H:%M:%S.png" -e 'xclip -selection clipboard -t image/png -i $f'
+
 #
 # bspwm hotkeys
 #
 
 # quit/restart bspwm
-alt + shift + {q,r}
+ctrl + shift + {q,r}
 	bspc {quit,wm -r}
 
 
