@@ -18,4 +18,5 @@ polybar -c $HOME/.config/polybar/Config.ini network &
 polybar -c $HOME/.config/polybar/Config.ini pulseaudio &
 polybar -c $HOME/.config/polybar/Config.ini keyboard &
 polybar -c $HOME/.config/polybar/Config.ini powermenu &
+polybar -c $HOME/.config/polybar/Config.ini nightlight &
 polybar -c $HOME/.config/polybar/Config.ini date &
