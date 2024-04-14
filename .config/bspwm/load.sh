@@ -4,7 +4,7 @@
 killall polybar
 killall sxhkd 
 
-picom --experimental-backend &
+picom &
 dunst & 
 $HOME/.config/polybar/launch.sh &
 sxhkd &
