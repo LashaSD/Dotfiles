@@ -102,16 +102,18 @@ return {
 		})
 
 		-- configure luau for roblox
-		lspconfig["luau_lsp"].setup({
-			sourcemap = {
-				enabled = true,
-				autogenerate = true, -- automatic generation when the server is attached
-				rojo_project_file = "default.project.json",
-			},
-			types = {
-				roblox = true,
-				roblox_security_level = "PluginSecurity",
-			},
-		})
+		-- lspconfig["luau_lsp"].setup({
+		--             capabilities = capabilities,
+		--             on_attach = on_attach,
+		-- 	sourcemap = {
+		-- 		enabled = true,
+		-- 		autogenerate = true, -- automatic generation when the server is attached
+		-- 		rojo_project_file = "default.project.json",
+		-- 	},
+		-- 	types = {
+		-- 		roblox = true,
+		-- 		roblox_security_level = "PluginSecurity",
+		-- 	},
+		-- })
 	end,
 }

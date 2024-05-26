@@ -17,17 +17,3 @@ vim.opt.incsearch = true;
 vim.opt.scrolloff = 8;
 
 vim.opt.cursorline = true
-
-vim.filetype.add({
-	extension = {
-      lua = function(path)
-        local a = path:match(".server.lua$");
-        local b = path:match(".client.lua$");
-
-        if (a or b) then return "luau" end
-
-        return "lua";
-		end,
-	},
-})
-

@@ -3,18 +3,22 @@ return {
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
+        local builtin = require("telescope.builtin")
+        vim.keymap.set('n', "<leader>ff", builtin.find_files, { desc = "Find Files" });
+        vim.keymap.set(
+          "n",
+          "<leader>fg",
+          "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+          { desc = "Live Grep" }
+        )
+        vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+
 		local telescope = require("telescope")
-		local actions = require("telescope.actions")
-        telescope.load_extension("fzf")
-		telescope.setup({})
+        telescope.setup({})
+
+        -- telescope.load_extension("fzf")
 	end,
-    keys = {
-      {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files with Fuzzy Finder"},
-      {"<leader>ft", "<cmd>Telescope<cr>", desc = "Telescope"},
-      {"<leader>fb", "<cmd>Telescope buffers<cr>", desc = "View Current Buffers"} 
-    }
 }
