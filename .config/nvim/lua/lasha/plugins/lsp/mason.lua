@@ -13,6 +13,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"luau_lsp",
+                "clangd",
 			},
 			automatic_installation = true,
 		})

@@ -75,10 +75,10 @@ return {
             on_attach = on_attach
         })
 
-        --[[lspconfig["clangd"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })--]]
+        lspconfig["clangd"].setup({
+          capabilities = capabilities,
+          on_attach = on_attach
+        })
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
@@ -100,20 +100,5 @@ return {
 				},
 			},
 		})
-
-		-- configure luau for roblox
-		-- lspconfig["luau_lsp"].setup({
-		--             capabilities = capabilities,
-		--             on_attach = on_attach,
-		-- 	sourcemap = {
-		-- 		enabled = true,
-		-- 		autogenerate = true, -- automatic generation when the server is attached
-		-- 		rojo_project_file = "default.project.json",
-		-- 	},
-		-- 	types = {
-		-- 		roblox = true,
-		-- 		roblox_security_level = "PluginSecurity",
-		-- 	},
-		-- })
 	end,
 }

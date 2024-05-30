@@ -4,5 +4,5 @@ require("lasha.core.set")
 
 if vim.g.neovide then require("lasha.core.neovide") end
 
-vim.cmd "colorscheme tokyodark"
+vim.cmd "colorscheme neomodern"
 vim.opt.tabstop = 4;

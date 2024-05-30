@@ -33,7 +33,7 @@ return {
         ["<S-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
-        ["<S-l>"] = cmp.mapping.confirm({
+        ["<C-l>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -48,10 +48,6 @@ return {
           s = cmp.mapping.confirm({ select = true }),
           c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
         }),
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
