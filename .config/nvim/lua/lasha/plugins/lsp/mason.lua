@@ -17,10 +17,5 @@ return {
 			},
 			automatic_installation = true,
 		})
-		require("mason-lspconfig").setup_handlers({
-			luau_lsp = function()
-				require("luau-lsp").setup({})
-			end,
-		})
 	end,
 }

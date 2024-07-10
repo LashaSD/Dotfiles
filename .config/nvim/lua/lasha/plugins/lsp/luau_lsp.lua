@@ -76,11 +76,7 @@ return {
                 -- definitions = { "./" },
 				roblox = true,
 				roblox_security_level = "PluginSecurity",
-			},
-            plugin = {
-                enabled = true,
-                port = 3667,
-            },
+			}
 		})
 	end,
 }
