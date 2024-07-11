@@ -10,10 +10,12 @@ return {
 		mason.setup({})
 
 		mason_lspconfig.setup({
-			ensure_installed = {
-				"lua_ls",
-				"luau_lsp",
+            ensure_installed = {
+                "lua_ls",
+                "luau_lsp",
                 "clangd",
+                "tsserver",
+                "cssls",
 			},
 			automatic_installation = true,
 		})
