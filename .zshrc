@@ -24,10 +24,11 @@ alias copy='xclip -selection clipboard'
 alias cv='cat solve.cpp | xclip -sel clipboard'
 alias c='g++ -s -O3 -o solve solve.cpp && ./solve'
 alias wallpaper='~/.scripts/wallp.sh'
-eval "$(starship init zsh)"
 
 if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
 
+source ~/Dotfiles/starship.zsh
+eval "$(starship init zsh)"
 . /usr/share/autojump/autojump.zsh
