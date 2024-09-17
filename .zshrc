@@ -29,6 +29,8 @@ if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
 
+. "$HOME/.aftman/env"
+
 source ~/Dotfiles/starship.zsh
 eval "$(starship init zsh)"
 . /usr/share/autojump/autojump.zsh
