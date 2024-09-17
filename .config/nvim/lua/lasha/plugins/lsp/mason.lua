@@ -14,7 +14,7 @@ return {
                 "lua_ls",
                 "luau_lsp",
                 "clangd",
-                "tsserver",
+                "ts_ls",
                 "cssls",
 			},
 			automatic_installation = true,
