@@ -12,20 +12,11 @@ return {
 			opts.buffer = bufnr
 
 			-- set keybinds
-			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
 			opts.desc = "Go To Definition"
-			keymap.set("n", "<leader>gi", vim.lsp.buf.definition, opts) -- show documentation for what is under cursor
+			keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts) -- show documentation for what is under cursor
+
+			opts.desc = "Go To Type Definition"
+			keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Smart rename"
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
@@ -46,12 +37,27 @@ return {
 			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+			keymap.set("n", "<leader>rs", ":LuauLsp restart<CR>", opts) -- mapping to restart lsp if necessary
 		end
 
         local capabilities = cmp_nvim_lsp.default_capabilities();
-        --
-        -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
+        local function rojo_project()
+            return vim.fs.root(0, function(name)
+                return name:match ".+%.project%.json$"
+            end)
+        end
+
+        if rojo_project() then
+            vim.filetype.add {
+                extension = {
+                    lua = function(path)
+                        return path:match "%.nvim%.lua$" and "lua" or "luau"
+                    end,
+                },
+            }
+        end
+
 		require("luau-lsp").setup({
             server = {
                 capabilities = capabilities;
@@ -81,6 +87,9 @@ return {
                 enabled = true,
                 port = 3667,
             },
+            platform = {
+                type = rojo_project() and "roblox" or "standard",
+            }
 		})
 	end,
 }
