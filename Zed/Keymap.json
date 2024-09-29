@@ -1,0 +1,70 @@
+// Zed keymap
+
+//
+
+// For information on binding keys, see the Zed
+
+// documentation: https://zed.dev/docs/key-bindings
+
+//
+
+// To see the default key bindings run `zed: open default keymap`
+
+// from the command palette.
+
+[
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::Toggle"
+    }
+  },
+
+  {
+    "context": "Workspace",
+
+    "bindings": {
+      "ctrl-shift-b": "workspace::ToggleLeftDock",
+
+      //  Unbinding bullshit noone needs
+      "ctrl-q": null,
+      "ctrl-shift-c": null
+    }
+  },
+
+  {
+    // Remove Annoying Terminal Keymap
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-j": null,
+      "ctrl-`": "workspace::ToggleBottomDock"
+    }
+  },
+
+  {
+    // LSP Binds
+    "context": "editor && vim_mode == normal",
+    "bindings": {
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g y": "editor::GoToTypeDefinition",
+      "g i": "editor::GoToImplementation",
+      "space r n": "editor::Rename",
+      "g A": "editor::FindAllReferences",
+
+      "g I": null
+    }
+  },
+
+  {
+    // Code Completion
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions", // Show completions
+      "ctrl-l": "editor::ConfirmCompletion", // Confirm completion
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
+    }
+  }
+]

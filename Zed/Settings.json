@@ -1,0 +1,71 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "tab_bar": {
+    "show": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_family": "IosevkaTerm Nerd Font",
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "liga": true,
+    "calt": true // Optional: Enables contextual alternates
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Ayu Dark"
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_multiline_find": true,
+    "use_smartcase_find": true
+  },
+  "lsp": {
+    "luau-lsp": {
+      "settings": {
+        "luau-lsp": {},
+        "ext": {
+          "roblox": {
+            "enabled": true,
+            /// Must be "roblox_script", "local_user", "plugin" or "none".
+            "security_level": "roblox_script"
+          },
+          "fflags": {
+            /// Whether or not all boolean, non-experimental fflags
+            /// should be enabled by default.
+            "enable_by_default": true,
+            /// Whether or not currently enabled FFlags should be synced
+            /// with Roblox's currently published FFlags (only the ones
+            /// starting with FFlagLuau).
+            "sync": true,
+            /// Flags that are forced to some value.
+            "override": {}
+          },
+          /// Definition files to pass to the language server.
+          /// On Windows, the paths are interpreted as absolute ones if they contain ':'.
+          /// On other platforms, they're interpreted as absolute if they begin with '/'.
+          /// Relative paths are relative to the worktree.
+          "definitions": [],
+          /// Documentation files to pass to the language server.
+          /// On Windows, the paths are interpreted as absolute ones if they contain ':'.
+          /// On other platforms, they're interpreted as absolute if they begin with '/'.
+          /// Relative paths are relative to the worktree.
+          "documentation": [],
+          /// Whether or not the worktree binary, if any, should be preferred over
+          /// installing the language server binary automatically and using that.
+          /// It is important to set this to true if you're installing luau-lsp with
+          /// Aftman or Foreman, for example.
+          "prefer_worktree_binary": false
+        }
+      }
+    }
+  }
+}
