@@ -14,6 +14,16 @@
 
 [
   {
+    "bindings": {
+      "ctrl-q": null,
+      "ctrl-b": null,
+      "ctrl-j": null,
+      "ctrl-shift-c": null,
+      "alt-t": null
+    }
+  },
+  
+  {
     "context": "vim_mode == normal",
     "bindings": {
       "space f f": "file_finder::Toggle",
@@ -22,35 +32,32 @@
   },
 
   {
-    "context": "Workspace",
-
+    // Environment Binds
+    "context": "Terminal || Workspace",
     "bindings": {
       "ctrl-shift-b": "workspace::ToggleLeftDock",
-
-      //  Unbinding bullshit noone needs
-      "ctrl-q": null,
-      "ctrl-shift-c": null
-    }
-  },
-
-  {
-    // Remove Annoying Terminal Keymap
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-j": null,
       "ctrl-`": "workspace::ToggleBottomDock"
     }
   },
 
   {
+    // Tasks
+    "context": "Terminal || (Editor && vim_mode == normal)",
+    "bindings": {
+      "ctrl-b": ["task::Spawn", { "task_name": "Build" }],
+      "ctrl-r": ["task::Spawn", { "task_name": "Run" }],
+      "alt-c": "task::Spawn"
+    }
+  },
+
+  {
     // LSP Binds
-    "context": "editor && vim_mode == normal",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "g d": "editor::GoToDefinition",
       "g D": "editor::GoToDeclaration",
       "g y": "editor::GoToTypeDefinition",
       "g i": "editor::GoToImplementation",
-      "space r n": "editor::Rename",
       "g A": "editor::FindAllReferences",
 
       "g I": null
