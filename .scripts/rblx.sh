@@ -3,20 +3,39 @@
 set -e
 
 OS_TYPE=$(uname)
-DIRS=('assets' 'src' 'Packages'
-      'src/server' 'src/server/components' 'src/server/services' 'src/server/scripts'
-      'src/client' 'src/client/components' 'src/client/controllers' 'src/client/scripts'
+DIRS=('assets' 'Packages'
+      'src/server/components' 'src/server/services' 'src/server/scripts'
+      'src/client/components' 'src/client/controllers' 'src/client/scripts'
       'src/common/configuration' 'src/common/modules' 'src/common/types')
 
+usage() {
+    echo "Usage: $0 [options]"
+    echo
+    echo "Options:"
+    echo "  help          Show this Help Message (and fixes the Directory Structure)"
+    echo "  init          Initialize The Project"
+    echo "  run           Run Rojo Server"
+    echo "  install       Install all Aftman and Wally Packages"
+    echo "  fix           Fix the Directory Structure if the Project lacks any"
+    echo
+    echo "Example:"
+    echo "  $0 init           Initialize"
+    echo "  $0 install        Install Packages"
+    echo "  $0 run            Run Rojo Server"
+    exit 1
+}
+
 fix_dirs() {
+    echo "Fixing Directories"
     for i in "${DIRS[@]}"; do
-        if [[ ! -d $i ]]; then
-            mkdir -p "$i"
+        if [[ ! -d "./$i" ]]; then
+            mkdir -p "./$i"
         fi
     done
 }
 
 init() {
+    echo "Initializing Project"
     aftman self-install
     aftman init
     aftman add rojo-rbx/rojo@7.4.4
@@ -54,16 +73,24 @@ run_rojo() {
 
 if [[ $1 == "init" ]]; then
     init
+    exit 0
 fi
 
 if [[ -f "default.project.json" ]]; then
     if [[ $1 == "run" ]]; then
         run_rojo
+        exit 0
     elif [[ $1 == "install" ]]; then
         install_packages
+        exit 0
     elif [[ $1 == "fix" ]]; then
         fix_dirs
+        exit 0
     fi
 else
     echo "Project not initialized"
+    exit 1
 fi
+
+echo "Invalid Arguement Passed"
+usage
