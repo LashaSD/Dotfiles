@@ -62,13 +62,13 @@ install_packages() {
     aftman install
     wally install
 
-    rojo sourcemap default.project.json -o sourcemap.json
+    rojo sourcemap --output sourcemap.json --include-non-scripts
     wally-package-types --sourcemap sourcemap.json Packages/
 }
 
 run_rojo() {
-    rojo serve default.project.json
-    rojo sourcemap default.project.json -o sourcemap.json --watch
+    rojo serve default.project.json &
+    rojo sourcemap --watch default.project.json --output sourcemap.json --include-non-scripts
 }
 
 if [[ $1 == "init" ]]; then
