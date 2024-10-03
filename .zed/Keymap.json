@@ -22,7 +22,7 @@
       "alt-t": null
     }
   },
-  
+
   {
     "context": "vim_mode == normal",
     "bindings": {
@@ -45,7 +45,7 @@
     "context": "Terminal || (Editor && vim_mode == normal)",
     "bindings": {
       "ctrl-b": ["task::Spawn", { "task_name": "Build" }],
-      "ctrl-r": ["task::Spawn", { "task_name": "Run" }],
+      "ctrl-shift-r": ["task::Spawn", { "task_name": "Dev" }],
       "alt-c": "task::Spawn"
     }
   },
