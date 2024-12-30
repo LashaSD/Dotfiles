@@ -22,7 +22,8 @@ alias PolyBarConfig='python3 ~/.config/polybar/config.py'
 alias nv='nvim'
 alias copy='xclip -selection clipboard'
 alias cv='cat solve.cpp | xclip -sel clipboard'
-alias c='g++ -s -O3 -o solve solve.cpp && ./solve'
+alias c='g++ -s -O3 -o solve solve.cpp'
+alias cr='g++ -s -O3 -o solve solve.cpp && ./solve'
 alias wallpaper='~/.scripts/wallp.sh'
 
 if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
