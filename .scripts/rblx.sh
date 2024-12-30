@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 set -e
 
@@ -89,6 +89,7 @@ if [[ -f "default.project.json" ]]; then
     fi
 else
     echo "Project not initialized"
+    usage
     exit 1
 fi
 
