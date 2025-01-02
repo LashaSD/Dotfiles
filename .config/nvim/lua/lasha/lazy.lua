@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		--{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "lasha/plugins" },
 		{ import = "lasha/plugins/colorschemes" },
 		{ import = "lasha/plugins/lsp" },
@@ -26,16 +25,5 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 	},
 	install = { colorscheme = { "rose-pine", "tokyonight", "habamax", "catppuccin" } },
-	checker = { enabled = true }, -- automatically check for plugin updates
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
+	checker = { enabled = false }, -- automatically check for plugin updates
 })
