@@ -1,14 +1,14 @@
 return {
-    "LashaSD/oil.nvim",
+    "LashaSD/lasha-oil.nvim",
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     config = function()
         local oil = require('oil');
         oil.setup({
             watch_for_changes = true,
             columns = {
+                "git_status",
                 "icon",
                 "size",
-                "git_status",
             },
             keymaps = {
                 ["<C-s>"] = "actions.select",
