@@ -20,8 +20,8 @@ bindkey -v '^?' backward-delete-char
 test -s ~/.alias && . ~/.alias || true
 alias nv='nvim'
 alias cv='cat solve.cpp | xclip -sel clipboard'
-alias c='g++ -s -O3 -o solve solve.cpp'
-alias cr='g++ -s -O3 -o solve solve.cpp && ./solve'
+alias c='g++ -DLASHA_LOCAL -s -O3 -o solve solve.cpp'
+alias cr='g++ -DLASHA_LOCAL -s -O3 -o solve solve.cpp && ./solve'
 alias rblx='~/.scripts/rblx.sh'
 
 if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
