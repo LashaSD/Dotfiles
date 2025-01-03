@@ -20,7 +20,7 @@ end
 local function CustomHover(opts_)
     opts_ = opts_ or {};
     return vim.lsp.buf.hover(vim.tbl_deep_extend('force', opts_, {
-        border = "rounded";
+        border = "single";
     }));
 end
 
@@ -42,6 +42,7 @@ local function on_attach(client, bufnr)
     map("n", "]d", PrevDiagnostic, "Jump To Previous Diagnostic")
     map("n", "K", CustomHover, "Show Docs For Symbols Under The Cursor")
     map("n", "<leader>rs", ":LuauLsp restart<CR>", "Restart The LSP")
+    map("n", "<leader>gs", vim.lsp.buf.document_symbol, "All The Symbols From The Current Buffer");
 end
 
 return {
