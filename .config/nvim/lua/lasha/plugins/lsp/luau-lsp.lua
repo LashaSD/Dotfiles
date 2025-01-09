@@ -11,6 +11,16 @@ return {
             end)
         end
 
+        if rojo_project() then
+            vim.filetype.add {
+                extension = {
+                    lua = function(path)
+                        return path:match "%.nvim%.lua$" and "lua" or "luau"
+                    end,
+                },
+            }
+        end
+
 		require("luau-lsp").setup({
             server = {
                 capabilities = require("cmp_nvim_lsp").default_capabilities(),
