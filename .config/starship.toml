@@ -9,8 +9,8 @@ format = """[╭╴](238)$os $username$hostname$directory$git_branch$git_status\
 
 # Drop ugly default prompt characters
 [character]
-success_symbol = "[->](238)"
-error_symbol = "[X](238)"
+success_symbol = "[|](white)"
+error_symbol = "[|](bold red)"
 
 # ---
 
