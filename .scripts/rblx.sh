@@ -74,7 +74,7 @@ install_packages() {
 }
 
 build() {
-    darklua process -c darklua.json $SRC $DIST
+    darklua process -c .darklua.json $SRC $DIST
 }
 
 build_dev() {
