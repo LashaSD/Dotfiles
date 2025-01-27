@@ -28,7 +28,7 @@ if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
 
-. "$HOME/.aftman/env"
+. "$HOME/.rokit/env"
 
 source ~/Dotfiles/starship.zsh
 eval "$(starship init zsh)"
