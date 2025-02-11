@@ -23,7 +23,6 @@ return {
 
 		require("luau-lsp").setup({
             server = {
-                cmd = { "luau-lsp", "lsp", "--base-luaurc=.luaurc"},
                 capabilities = require("cmp_nvim_lsp").default_capabilities(),
                 on_attach = require("lasha.plugins.binds.lsp-binds").on_attach,
                 settings = {
