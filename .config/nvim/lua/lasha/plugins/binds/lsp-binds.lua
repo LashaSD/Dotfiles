@@ -17,6 +17,13 @@ local function PrevDiagnostic(opts_)
     }));
 end
 
+local function CustomSignatureHelp(_opts)
+    _opts = _opts or {};
+    return vim.lsp.buf.signature_help(vim.tbl_deep_extend('force', _opts, {
+        border = "single";
+    }))
+end
+
 local function CustomHover(opts_)
     opts_ = opts_ or {};
     return vim.lsp.buf.hover(vim.tbl_deep_extend('force', opts_, {
@@ -49,7 +56,8 @@ local function on_attach(client, bufnr)
     map("n", "]d", PrevDiagnostic, "Jump To Previous Diagnostic")
     map("n", "K", CustomHover, "Show Docs For Symbols Under The Cursor")
     map("n", "<leader>rs", ":LuauLsp restart<CR>", "Restart The LSP")
-    map("n", "<leader>gs", vim.lsp.buf.document_symbol, "All The Symbols From The Current Buffer");
+    map("n", "<leader>gs", CustomSignatureHelp, "LSP Function Signature Help");
+    map("n", "<leader>gr", vim.lsp.buf.references, "Quickfix list of the references");
     vim.api.nvim_create_user_command('DiagnosticsOn', DiagnosticsOn, {})
     vim.api.nvim_create_user_command('DiagnosticsOff', DiagnosticsOff, {})
 end
