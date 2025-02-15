@@ -1,4 +1,4 @@
 return {
-  "yazeed1s/minimal.nvim",
-  name = "minimal",
+    "yazeed1s/minimal.nvim",
+    name = "minimal",
 }
