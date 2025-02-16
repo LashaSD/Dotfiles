@@ -9,6 +9,7 @@ return {
                 right = {}
             },
             matchup_patterns = {
+                { '^%s*local.*do$', 'end' }, -- `local .. do ... end` blocks
                 { '^%s*do$', 'end' }, -- `do ... end` blocks
                 { '^%s*if', 'end' },
 

@@ -19,4 +19,10 @@ vim.opt.scrolloff = 8;
 
 vim.opt.cursorline = true
 
+-- Fold
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevelstart = 1001
+
 vim.cmd "colorscheme minimal"
+vim.cmd[[ hi! link Folded @comment ]]
