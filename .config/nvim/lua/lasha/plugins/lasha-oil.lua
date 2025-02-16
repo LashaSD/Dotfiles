@@ -4,6 +4,8 @@ return {
     config = function()
         local oil = require('oil');
         oil.setup({
+            skip_confirm_for_simple_edits = true,
+            delete_to_trash = true,
             watch_for_changes = true,
             columns = {
                 "git_status",
@@ -21,6 +23,9 @@ return {
                 untracked = {"?", "@comment.warning"},
                 none = {"-", "@comment"}
             },
+            view_options = {
+                show_hidden = true
+            }
         });
 
         -- Bind :Ex to Oil
