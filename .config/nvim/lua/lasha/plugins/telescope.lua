@@ -40,7 +40,8 @@ return {
         telescope.setup({
             extensions = {
                 live_grep_args = {
-                    theme = "dropdown"
+                    theme = "dropdown",
+                    additional_args = { "--fixed-strings" }
                 }
             }
         })
