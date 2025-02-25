@@ -29,4 +29,4 @@ vim.cmd [[ set list ]]
 vim.cmd [[ set listchars+=trail:◦ ]]
 
 vim.cmd "colorscheme minimal"
-vim.cmd[[ hi! link Folded @comment ]]
+vim.cmd[[ hi! link Folded @character.special ]]
