@@ -1,0 +1,52 @@
+{
+    "schemes":
+    [
+        {
+            "background": "#1E1E1E",
+            "black": "#1E1E1E",
+            "blue": "#81A2BE",
+            "brightBlack": "#666666",
+            "brightBlue": "#7AA6DA",
+            "brightCyan": "#70C0B1",
+            "brightGreen": "#B9CA4A",
+            "brightPurple": "#C397D8",
+            "brightRed": "#D54E53",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#E7C547",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#8ABEB7",
+            "foreground": "#C5C8C6",
+            "green": "#B5BD68",
+            "name": "Minimal",
+            "purple": "#B294BB",
+            "red": "#CC6666",
+            "selectionBackground": "#FFFFFF",
+            "white": "#C5C8C6",
+            "yellow": "#F0C674"
+        },
+        {
+            "background": "#1A1A1A",
+            "black": "#121212",
+            "blue": "#2B4FFF",
+            "brightBlack": "#666666",
+            "brightBlue": "#5C78FF",
+            "brightCyan": "#5AC8FF",
+            "brightGreen": "#72B0B8",
+            "brightPurple": "#5EA2FF",
+            "brightRed": "#FFA500",
+            "brightWhite": "#FFFFFF",
+            "brightYellow": "#5AADFF",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#28B9FF",
+            "foreground": "#F1F1F1",
+            "green": "#32CD32",
+            "name": "xcad",
+            "purple": "#2883FF",
+            "red": "#FFA500",
+            "selectionBackground": "#FFFFFF",
+            "white": "#F1F1F1",
+            "yellow": "#5DBB97"
+        }
+    ],
+    "themes": []
+}
