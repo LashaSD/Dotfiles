@@ -3,18 +3,32 @@ local keymap = vim.keymap;
 
 local function NextDiagnostic(opts_)
     opts_ = opts_ or {}
-    return vim.diagnostic.jump(vim.tbl_deep_extend('force', opts_, {
-        count = 1;
-        float = true;
-    }));
+    if vim.diagnostic.jump ~= nil then
+        return vim.diagnostic.jump(vim.tbl_deep_extend('force', opts_, {
+            count = 1;
+            float = true;
+        }));
+    else
+        return vim.diagnostic.goto_prev(vim.tbl_deep_extend('force', opts_, {
+            count = -1;
+            float = true;
+        }));
+    end
 end
 
 local function PrevDiagnostic(opts_)
     opts_ = opts_ or {}
-    return vim.diagnostic.jump(vim.tbl_deep_extend('force', opts_, {
-        count = -1;
-        float = true;
-    }));
+    if vim.diagnostic.jump ~= nil then
+        return vim.diagnostic.jump(vim.tbl_deep_extend('force', opts_, {
+            count = -1;
+            float = true;
+        }));
+    else
+        return vim.diagnostic.goto_next(vim.tbl_deep_extend('force', opts_, {
+            count = -1;
+            float = true;
+        }));
+    end
 end
 
 local function CustomSignatureHelp(_opts)
@@ -30,6 +44,24 @@ local function CustomHover(opts_)
         border = "single";
     }));
 end
+
+local _border = "single"
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+        border = _border
+    }
+)
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+    vim.lsp.handlers.signature_help, {
+        border = _border
+    }
+)
+
+vim.diagnostic.config{
+    float={border=_border}
+}
 
 local function DiagnosticsOn()
     vim.diagnostic.enable(true)
