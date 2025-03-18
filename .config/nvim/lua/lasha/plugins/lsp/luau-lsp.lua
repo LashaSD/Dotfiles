@@ -1,5 +1,6 @@
 return {
 	"lopi-py/luau-lsp.nvim",
+    event = "BufReadPre",
 	opts = {},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -26,13 +27,13 @@ return {
                 capabilities = require("cmp_nvim_lsp").default_capabilities(),
                 on_attach = require("lasha.plugins.binds.lsp-binds").on_attach,
                 settings = {
-                  ["luau-lsp"] = {
-                    completion = {
-                      imports = {
-                        enabled = true, -- enable auto imports
-                      },
+                    ["luau-lsp"] = {
+                        completion = {
+                            imports = {
+                                enabled = true, -- enable auto imports
+                            },
+                        },
                     },
-                  },
                 },
             },
 			sourcemap = {
