@@ -30,3 +30,6 @@ vim.cmd [[ set listchars+=trail:◦ ]]
 
 vim.cmd "colorscheme minimal"
 vim.cmd[[ hi! link Folded @character.special ]]
+
+-- status line
+require("lasha.core.status-line").setup();
