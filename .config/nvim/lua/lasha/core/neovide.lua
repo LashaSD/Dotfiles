@@ -1,4 +1,4 @@
-vim.o.guifont = "IosevkaTerm Nerd Font"
+vim.o.guifont = "IosevkaTerm Nerd Font:h16"
 
 vim.g.neovide_padding_top = 0
 vim.g.neovide_padding_bottom = 0
