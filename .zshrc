@@ -17,14 +17,14 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-local NEOVIDE_DIR="/mnt/c/Users/lasha/Software/Neovide/neovide.exe"
+local NEOVIDE_BIN="neovide.exe"
 nev() {
     local DIR=$(realpath $PWD)
     if [ -n "$1" ]; then
         DIR=$(realpath "$1")
     fi
 
-    cmd.exe "$NEOVIDE_DIR" --wsl "$DIR"
+    powershell.exe -Command "$NEOVIDE_BIN" --wsl "$DIR"
 }
 
 test -s ~/.alias && . ~/.alias || true
