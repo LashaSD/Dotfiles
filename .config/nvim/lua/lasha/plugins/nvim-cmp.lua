@@ -13,28 +13,10 @@ return {
         local defaults = require("cmp.config.default")()
         return {
             window = {
-                completion = {
-                    completeopt = "menu,menuone,noinsert",
-                    border = "single",
-                    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
-                },
-                documentation = {
-                    border = "single",
-                    winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
-                }
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered()
             },
             mapping = cmp.mapping.preset.insert({
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        if #cmp.get_entries() == 1 then
-                            cmp.confirm({ select = true })
-                        else
-                            cmp.select_next_item()
-                        end
-                    else
-                        fallback();
-                    end
-                end, { "i", "s" }),
                 ["<C-j>"] = cmp.mapping.select_next_item(),
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
                 ["<C-Space>"] = cmp.mapping.complete(),

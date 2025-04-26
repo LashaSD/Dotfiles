@@ -43,6 +43,11 @@ return {
                     theme = "dropdown",
                     additional_args = { "--fixed-strings" }
                 }
+            },
+            pickers = {
+                find_files = {
+                    find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs' }
+                }
             }
         })
 

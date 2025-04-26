@@ -28,7 +28,7 @@ vim.opt.foldlevelstart = 1001
 vim.cmd [[ set list ]]
 vim.cmd [[ set listchars+=trail:◦ ]]
 
-vim.cmd "colorscheme minimal"
+vim.cmd "colorscheme evergarden"
 vim.cmd[[ hi! link Folded @character.special ]]
 
 -- status line
