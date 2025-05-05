@@ -12,9 +12,15 @@ return {
 
         mason.setup({})
 
-        local lsp_ids = { "lua_ls", "luau_lsp", "clangd", "ts_ls", "cssls", "omnisharp", "rust_analyzer" };
         mason_lspconfig.setup({
-            ensure_installed = lsp_ids,
+            ensure_installed = {
+                "lua_ls",
+                "luau_lsp",
+                "clangd",
+                "ts_ls",
+                "cssls",
+                "omnisharp"
+            },
             automatic_installation = true,
         })
 
@@ -29,25 +35,23 @@ return {
         local on_attach = require("lasha.plugins.binds.lsp-binds").on_attach
         local lspconfig = require("lspconfig")
 
-        local lsp_blacklist = { "lua_ls", "luau_lsp" };
-        for _, value in ipairs(lsp_ids) do
-            if not vim.tbl_contains(lsp_blacklist, value) then
-                lspconfig[value].setup({
-                    capabilities = capabilities,
-                    on_attach = on_attach
-                })
-            end
-        end
+        lspconfig["clangd"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
 
+        -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
-            settings = {
+            settings = { -- custom settings for lua
                 Lua = {
+                    -- make the language server recognize "vim" global
                     diagnostics = {
                         globals = { "vim" },
                     },
                     workspace = {
+                        -- make language server aware of runtime files
                         library = {
                             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                             [vim.fn.stdpath("config") .. "/lua"] = true,
@@ -56,5 +60,20 @@ return {
                 },
             },
         })
+
+        lspconfig["ts_ls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        });
+
+        lspconfig["cssls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        });
+
+        lspconfig["omnisharp"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        });
     end,
 }
