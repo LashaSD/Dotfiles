@@ -24,6 +24,14 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevelstart = 1001
 
+-- Error Formats
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "lua", "luau" },
+    callback = function()
+        vim.opt.errorformat = "%f\\(%l\\,%c\\): %t%*[^:]: %m", ',';
+    end,
+})
+
 -- Trailing Whitespace
 vim.cmd [[ set list ]]
 vim.cmd [[ set listchars+=trail:◦ ]]
