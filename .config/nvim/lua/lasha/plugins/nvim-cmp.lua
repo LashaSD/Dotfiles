@@ -1,24 +1,45 @@
 return {
     "hrsh7th/nvim-cmp",
-    version = false,
-    event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path"
+        "hrsh7th/cmp-path",
     },
-    opts = function()
+    config = function()
         vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
         local cmp = require("cmp")
+        local luasnip = require("luasnip")
         local defaults = require("cmp.config.default")()
-        return {
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    luasnip.lsp_expand(args.body)
+                end,
+            },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered()
             },
             mapping = cmp.mapping.preset.insert({
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
+                -- ["<C-j>"] = cmp.mapping.select_next_item(),
+                ["<C-j>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    elseif luasnip.jumpable(1) then
+                        luasnip.jump(1)
+                    else
+                        fallback()
+                    end
+                end),
+                ["<C-k>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-l>"] = cmp.mapping.confirm({
@@ -40,10 +61,11 @@ return {
             sources = cmp.config.sources(
                 {
                     { name = "nvim_lsp" },
-                    { name = "path" }
+                    { name = "path" },
+                    { name = "luasnip" },
                 },
                 {
-                    { name = "buffer" }
+                    { name = "buffer" },
                 }
             ),
             experimental = {
@@ -52,12 +74,6 @@ return {
                 },
             },
             sorting = defaults.sorting,
-        }
-    end,
-    config = function(_, opts)
-        for _, source in ipairs(opts.sources) do
-            source.group_index = source.group_index or 1
-        end
-        require("cmp").setup(opts)
-    end,
+        });
+    end
 }
