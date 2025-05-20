@@ -1,7 +1,7 @@
 return {
     "L3MON4D3/LuaSnip",
     dependencies = {
-        "srafamadriz/friendly-snippets",
+        "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
     },
     opts = {
