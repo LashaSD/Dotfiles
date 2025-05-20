@@ -22,6 +22,7 @@ return {
                 "omnisharp"
             },
             automatic_installation = true,
+            automatic_enable = false,
         })
 
         -- Change the Diagnostic symbols in the sign column (gutter)
