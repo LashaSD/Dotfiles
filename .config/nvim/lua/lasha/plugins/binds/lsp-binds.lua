@@ -89,6 +89,7 @@ local function on_attach(client, bufnr)
     map("n", "K", CustomHover, "Show Docs For Symbols Under The Cursor")
     map("n", "<leader>rs", ":LuauLsp restart<CR>", "Restart The LSP")
     map("n", "<leader>gs", CustomSignatureHelp, "LSP Function Signature Help");
+    map("i", "<C-s>", CustomSignatureHelp, "LSP Function Signature Help");
     map("n", "<leader>gr", vim.lsp.buf.references, "Quickfix list of the references");
     vim.api.nvim_create_user_command('DiagnosticsOn', DiagnosticsOn, {})
     vim.api.nvim_create_user_command('DiagnosticsOff', DiagnosticsOff, {})
