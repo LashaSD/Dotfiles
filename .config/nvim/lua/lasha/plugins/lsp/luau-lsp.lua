@@ -53,7 +53,10 @@ return {
             },
             platform = {
                 type = rojo_project() and "roblox" or "standard",
-            }
+            },
+            fflags = {
+                enable_new_solver = false,
+            },
         })
     end,
 }
