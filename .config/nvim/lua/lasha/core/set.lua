@@ -23,6 +23,7 @@ vim.opt.cursorline = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevelstart = 1001
+vim.api.nvim_set_keymap('i', '<ESC>', '<ESC>zv', {noremap = true, silent = true})
 
 -- Error Formats
 vim.api.nvim_create_autocmd("FileType", {
