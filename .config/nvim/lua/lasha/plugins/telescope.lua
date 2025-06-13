@@ -41,7 +41,7 @@ return {
             extensions = {
                 live_grep_args = {
                     theme = "dropdown",
-                    additional_args = { "--fixed-strings" }
+                    additional_args = { }
                 }
             },
             pickers = {
