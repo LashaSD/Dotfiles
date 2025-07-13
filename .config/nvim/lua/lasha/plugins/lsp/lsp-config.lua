@@ -16,12 +16,8 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "luau_lsp",
-                "clangd",
-                "ts_ls",
-                "cssls",
-                "omnisharp"
             },
-            automatic_installation = true,
+            automatic_installation = false,
             automatic_enable = false,
         })
 
@@ -32,20 +28,27 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        local on_attach = require("lasha.plugins.binds.lsp-binds").on_attach
-        local lspconfig = require("lspconfig")
+        local capabilities = require("cmp_nvim_lsp").default_capabilities();
+        local on_attach = require("lasha.plugins.binds.lsp-binds").on_attach;
+        local lspconfig = require("lspconfig");
 
-        lspconfig["clangd"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach
-        })
+        local function setup_safe(lsp_name, p_opts)
+            local opts = p_opts or {};
+            local lsp = lspconfig[lsp_name];
+            if lsp ~= nil then
+                lspconfig[lsp_name].setup(vim.tbl_deep_extend("force", {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                }, opts));
+            end
+        end
 
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = { -- custom settings for lua
+        setup_safe("clangd", {
+            cmd = { "clangd", "--background-index", "--clang-tidy", "--completion-style=detailed", "--pch-storage=memory" },
+        });
+
+        setup_safe("lua_ls", {
+            settings = {
                 Lua = {
                     -- make the language server recognize "vim" global
                     diagnostics = {
@@ -62,19 +65,9 @@ return {
             },
         })
 
-        lspconfig["ts_ls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        });
-
-        lspconfig["cssls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        });
-
-        lspconfig["omnisharp"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        });
+        setup_safe("ts_ls");
+        setup_safe("cssls");
+        setup_safe("omnisharp");
+        setup_safe("zls");
     end,
 }
