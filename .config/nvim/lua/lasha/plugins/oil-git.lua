@@ -1,5 +1,5 @@
 return {
-    "LashaSD/lasha-oil.nvim",
+    "LashaSD/oil-git.nvim",
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     config = function()
         local oil = require('oil');
