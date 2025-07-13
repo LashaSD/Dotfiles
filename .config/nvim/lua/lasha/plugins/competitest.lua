@@ -7,7 +7,7 @@ return {
         view_output_diff = true,
         compile_command = {
             c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
-            cpp = { exec = "g++", args = { "-DLASHA_LOCAL", "-s", "-O3", "-o", "$(FNOEXT)", "$(FNAME)" } },
+            cpp = { exec = "g++", args = { "-std=c++20", "-DLOCAL", "-s", "-O3", "-o", "$(FNOEXT)", "$(FNAME)" } },
             rust = { exec = "rustc", args = { "$(FNAME)" } },
             java = { exec = "javac", args = { "$(FNAME)" } },
         },
