@@ -42,14 +42,3 @@ vim.cmd[[ hi! link Folded @character.special ]]
 
 -- status line
 require("lasha.core.status-line").setup();
-
--- import .nvim.lua file if present
-local init_file_name = ".nvim.lua";
-local init_file_exists = false do
-    local f = io.open(init_file_name, "r");
-    init_file_exists = f ~= nil;
-end
-
-if init_file_exists then
-    vim.cmd([[ source ./]] .. init_file_name);
-end
