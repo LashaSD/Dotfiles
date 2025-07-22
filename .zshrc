@@ -1,4 +1,3 @@
-
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -39,9 +38,6 @@ if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
 
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . /usr/share/autojump/autojump.zsh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
