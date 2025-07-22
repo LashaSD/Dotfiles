@@ -1,3 +1,4 @@
+
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
@@ -38,8 +39,9 @@ if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
 
-. "$HOME/.rokit/env"
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-source ~/Dotfiles/starship.zsh
-eval "$(starship init zsh)"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . /usr/share/autojump/autojump.zsh
