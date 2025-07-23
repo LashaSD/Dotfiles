@@ -40,13 +40,14 @@ return {
         telescope.setup({
             extensions = {
                 live_grep_args = {
-                    theme = "dropdown",
+                    theme = "ivy",
                     additional_args = { }
                 }
             },
             pickers = {
                 find_files = {
-                    find_command = { 'rg', '--files', '--hidden', '--no-ignore-vcs' }
+                    theme = "ivy",
+                    find_command = { 'rg', '--files', '--hidden' }
                 }
             }
         })
