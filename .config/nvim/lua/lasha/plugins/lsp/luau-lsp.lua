@@ -30,7 +30,7 @@ return {
                     ["luau-lsp"] = {
                         completion = {
                             imports = {
-                                enabled = true, -- enable auto imports
+                                enabled = false,
                             },
                         },
                     },
