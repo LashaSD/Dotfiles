@@ -17,8 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     spec = {
         { import = "lasha/plugins" },
-        { import = "lasha/plugins/colorschemes" },
-        { import = "lasha/plugins/lsp" },
+        { import = "lasha/plugins/colorschemes" }
     },
     defaults = {
         lazy = false,

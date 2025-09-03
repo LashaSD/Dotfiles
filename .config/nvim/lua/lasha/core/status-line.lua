@@ -122,10 +122,13 @@ state.full_status = {
 }
 
 state.short_status = {
-    state.full_status[1],
+    state.full_status[1],  -- mode
+    state.full_status[2],  -- %t
+    state.full_status[3],  -- %r
+    state.full_status[4],  -- %m
     '%=',
     state.percent,
-    state.full_status[8]
+    state.full_status[8],
 }
 
 state.inactive_status = {

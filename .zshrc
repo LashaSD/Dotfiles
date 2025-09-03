@@ -27,6 +27,8 @@ nev() {
     powershell.exe -Command "$NEOVIDE_BIN" --wsl "$DIR"
 }
 
+bindkey '^R' history-incremental-search-backward
+
 test -s ~/.alias && . ~/.alias || true
 alias nv='nvim'
 alias cv='cat solve.cpp | xclip -sel clipboard'
@@ -37,6 +39,9 @@ alias rblx='~/.scripts/rblx.sh'
 if command -v wal > /dev/null  2>&1 && [ "$TERM" = "alacritty" ]; then
 	wal -Rqe
 fi
+
+
+export PATH="$HOME/software/binln/:$PATH"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . /usr/share/autojump/autojump.zsh
