@@ -42,6 +42,7 @@ fi
 
 
 export PATH="$HOME/software/binln/:$PATH"
+. "$HOME/.rokit/env"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . /usr/share/autojump/autojump.zsh
