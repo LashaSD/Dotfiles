@@ -1,0 +1,26 @@
+local function rojo_project(bufnr)
+      return vim.fs.root(bufnr, function(name)
+        return name:match ".+%.project%.json$"
+      end)
+end
+
+vim.lsp.config["luau-lsp"] = {
+    cmd = { "luau-lsp", "lsp", "--definitions", "./globalTypes.d.lua", "--base-luaurc", "./.luaurc" },
+    filetypes = { "luau" },
+    settings = {
+        platform = { type = "roblox" },
+    },
+    root_markers = { ".git", "sourcemap.json" },
+    sourcemap = {
+        enabled = true,
+        autogenerate = true,
+    },
+    fflags = {
+        enable_new_solver = true,
+    },
+    root_dir = function(bufnr, on_dir)
+        on_dir(rojo_project(bufnr));
+    end,
+};
+
+vim.lsp.enable("luau-lsp");

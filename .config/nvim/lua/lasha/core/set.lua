@@ -29,7 +29,7 @@ vim.api.nvim_set_keymap('i', '<ESC>', '<ESC>zv', {noremap = true, silent = true}
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "lua", "luau" },
     callback = function()
-        vim.opt.errorformat = "%f\\(%l\\,%c\\): %t%*[^:]: %m", ',';
+        -- vim.opt.errorformat = "%f\\(%l\\,%c\\): %t%*[^:]: %m", ',';
     end,
 })
 
