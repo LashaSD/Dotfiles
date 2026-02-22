@@ -4,19 +4,26 @@ local function rojo_project(bufnr)
       end)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
+
 vim.lsp.config["luau-lsp"] = {
     cmd = { "luau-lsp", "lsp", "--definitions", "./globalTypes.d.lua", "--base-luaurc", "./.luaurc" },
+    capabilities = capabilities,
     filetypes = { "luau" },
     settings = {
-        platform = { type = "roblox" },
-    },
-    root_markers = { ".git", "sourcemap.json" },
-    sourcemap = {
-        enabled = true,
-        autogenerate = true,
-    },
-    fflags = {
-        enable_new_solver = true,
+        ["luau-lsp"] = {
+            platform = { type = "roblox" },
+            root_markers = { ".git", "sourcemap.json" },
+            sourcemap = {
+                enabled = true,
+                autogenerate = true,
+                sourcemapFile = "sourcemap.json",
+            },
+            fflags = {
+                enable_new_solver = true,
+            },
+        }
     },
     root_dir = function(bufnr, on_dir)
         on_dir(rojo_project(bufnr));
