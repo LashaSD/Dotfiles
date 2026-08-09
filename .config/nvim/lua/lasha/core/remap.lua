@@ -11,7 +11,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
--- make w jumps PascalCase Sensitive
-vim.api.nvim_set_keymap('n', '<leader>w', [[:call search('\u\l\|_\l', 'W')<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>b', [[:call search('\(\u\l\|_\l\)', 'bW')<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>e', [[:call search('\(\u\l\|_\l\)', 'eW')<CR>]], { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dt", function()
+    if vim.diagnostic.is_enabled() then
+        vim.diagnostic.enable(false)
+    else
+        vim.diagnostic.enable(true)
+    end
+end, { desc = "Toggle LSP diagnostics" })
