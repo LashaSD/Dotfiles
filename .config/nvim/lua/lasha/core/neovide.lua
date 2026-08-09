@@ -28,6 +28,9 @@ vim.g.neovide_cursor_unfocused_outline_width = 0.075
 vim.g.neovide_cursor_smooth_blink = false
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 
+vim.opt.errorbells = false;
+vim.opt.visualbell = true;
+
 local hl = vim.api.nvim_get_hl_by_name("Visual", true)
 vim.api.nvim_set_hl(0, "Visual", { bg = hl.background, fg = hl.foreground, bold = false })
 
