@@ -1,14 +1,18 @@
 local function rojo_project(bufnr)
-      return vim.fs.root(bufnr, function(name)
+    return vim.fs.root(bufnr, function(name)
         return name:match ".+%.project%.json$"
-      end)
+    end)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
 vim.lsp.config["luau-lsp"] = {
-    cmd = { "luau-lsp", "lsp", "--definitions", "./globalTypes.d.lua", "--base-luaurc", "./.luaurc" },
+    cmd = {
+        "luau-lsp", "lsp",
+        "--definitions", "./globalTypes.d.lua",
+        "--flag:LuauSolverV2=True",
+    },
     capabilities = capabilities,
     filetypes = { "luau" },
     settings = {
@@ -17,7 +21,7 @@ vim.lsp.config["luau-lsp"] = {
             root_markers = { ".git", "sourcemap.json" },
             sourcemap = {
                 enabled = true,
-                autogenerate = true,
+                autogenerate = false,
                 sourcemapFile = "sourcemap.json",
             },
             fflags = {
